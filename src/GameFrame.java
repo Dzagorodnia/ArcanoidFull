@@ -12,9 +12,10 @@ public class GameFrame {
 
 	public GameFrame() {
 		frame = new JFrame("Arkanoid");
-		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
 		frame.addWindowListener(new WindowAdapter() {
-	         public void windowClosed(WindowEvent windowEvent){
+		    @Override
+	         public void windowClosing(WindowEvent windowEvent){
 	             System.out.println("You closed window");
 	          }        
 	       });    
