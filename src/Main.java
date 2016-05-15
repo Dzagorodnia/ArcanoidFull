@@ -6,7 +6,9 @@ import javax.swing.JFrame;
 public class Main {
 	public static void main(String[] args) {
 		GameFrame mainFrame = new GameFrame();
-		mainFrame.addWindowListener(WindowAdapter windowAdapter);
+		mainFrame.addWindowCloseListener(e->{
+            System.out.println("You closed window");
+		});
 		       
 
 		while (true) {

@@ -3,6 +3,7 @@ import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.util.function.Consumer;
 
 import javax.swing.JFrame;
 
@@ -57,11 +58,11 @@ public class GameFrame {
 
 	}
 
-	protected void addWindowListener(WindowAdapter windowAdapter) {
+	protected void addWindowCloseListener(Consumer<WindowEvent> consumer) {
 		frame.addWindowListener(new WindowAdapter() {
 		    @Override
 	         public void windowClosing(WindowEvent windowEvent){
-	             System.out.println("You closed window");
+		        consumer.accept(windowEvent);
 	          }        
 	       });
 		
