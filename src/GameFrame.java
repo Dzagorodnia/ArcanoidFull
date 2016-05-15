@@ -1,6 +1,8 @@
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Graphics;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 import javax.swing.JFrame;
 
@@ -10,7 +12,12 @@ public class GameFrame {
 
 	public GameFrame() {
 		frame = new JFrame("Arkanoid");
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.addWindowListener(new WindowAdapter() {
+	         public void windowClosed(WindowEvent windowEvent){
+	             System.out.println("You closed window");
+	          }        
+	       });    
 		frame.setResizable(false);
 		gamePanel = new GamePanel(300, 500);
 		gamePanel.setPreferredSize(new Dimension(300, 500));
@@ -33,7 +40,7 @@ public class GameFrame {
 	}
 
 	public static void main(String[] args) {
-		GameFrame mainFrame = new GameFrame();
+		/*GameFrame mainFrame = new GameFrame();
 
 		while (true) {
 			mainFrame.gamePanel.ball.moveBall();
@@ -45,14 +52,8 @@ public class GameFrame {
 				e.printStackTrace();
 			}
 
-		}
+		}*/
 
-		// long animationTimeStep = 30;
-		/*
-		 * while(true) { mainFrame.gamePanel.Update(animationTimeStep); try {
-		 * Thread.sleep(animationTimeStep); } catch (InterruptedException e) {
-		 * e.printStackTrace(); } }
-		 */
 	}
 
 }
