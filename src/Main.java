@@ -1,9 +1,13 @@
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JFrame;
 
 public class Main {
 	public static void main(String[] args) {
-		Main main = new Main();
 		GameFrame mainFrame = new GameFrame();
+		mainFrame.addWindowListener(WindowAdapter windowAdapter);
+		       
 
 		while (true) {
 			mainFrame.gamePanel.ball.moveBall();

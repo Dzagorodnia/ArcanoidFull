@@ -13,12 +13,12 @@ public class GameFrame {
 	public GameFrame() {
 		frame = new JFrame("Arkanoid");
 		frame.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
-		frame.addWindowListener(new WindowAdapter() {
+		/*frame.addWindowListener(new WindowAdapter() {
 		    @Override
 	         public void windowClosing(WindowEvent windowEvent){
 	             System.out.println("You closed window");
 	          }        
-	       });    
+	       }); */   
 		frame.setResizable(false);
 		gamePanel = new GamePanel(300, 500);
 		gamePanel.setPreferredSize(new Dimension(300, 500));
@@ -56,5 +56,16 @@ public class GameFrame {
 		}*/
 
 	}
+
+	protected void addWindowListener(WindowAdapter windowAdapter) {
+		frame.addWindowListener(new WindowAdapter() {
+		    @Override
+	         public void windowClosing(WindowEvent windowEvent){
+	             System.out.println("You closed window");
+	          }        
+	       });
+		
+	}
+
 
 }
